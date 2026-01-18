@@ -6,10 +6,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import confusion_matrix, classification_report
 import pandas as pd
 import numpy as np
-import shap 
+import shap
+import sys
 
 df = pd.read_csv("synthetic_MTSS_dataset.csv")
-X = df.drop("Injury", axis=1)
+X = df.drop(columns=["Injury", "Sex","Weekly_Mileage", "Rest_Days", "Injury_History", "ACWR"])
 y = df["Injury"]
 cv_accuracies = []
 test_accuracies = []
